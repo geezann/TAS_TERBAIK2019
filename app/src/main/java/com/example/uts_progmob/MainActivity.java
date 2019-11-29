@@ -16,7 +16,8 @@ import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity {
     DataDosenService dataDosenService;
-    DataMahasiswaService dataMahasiswaService;
+    DataDosenService service;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,50 +25,84 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         dataDosenService = RetrofitClient.getRetrofitInstance()
                 .create(DataDosenService.class);
-        dataMahasiswaService = RetrofitClient.getRetrofitInstance()
-                .create(DataMahasiswaService.class);
-        getAllDataDosen();
-        getAllDataMHS();
-    }
-    private void getAllDataDosen()
-    {
-        Call<List<com.example.uts_progmob.Model.DataDosen>> call = DataDosenService.getDosenAll("1");
-        call.enqueue(new Callback<List<com.example.uts_progmob.Model.DataDosen>>() {
-            @Override
-            public void onResponse(Call<List<com.example.uts_progmob.Model.DataDosen>> call, Response<List<com.example.uts_progmob.Model.DataDosen>> response) {
-                for(com.example.uts_progmob.Model.DataDosen dosen:response.body())
-                {
-                    System.out.println("NidnNama : " +dosen.getNidnNama());
-                    System.out.println("Gelar : " +dosen.getGelar());
-                }
+        dataDosenService = RetrofitClient.getRetrofitInstance()
+                .create(DataDosenService.class);
+        insertDosen();
+        createDosen();
+        updateDosen();
+        deleteDosen();
 
+    }
+
+    private void insertDosen(){
+        Call<DefaultResult> call = dataDosenService.insertDosen("Dendy","001","Yogyakarta",
+                "dendy@dendy.com","SKUYLIVING","dendy.jpg","1");
+        call.enqueue(new Callback<DefaultResult>() {
+            @Override
+            public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
+                System.out.println(response.body().getStatus());
             }
 
             @Override
-            public void onFailure(Call<List<com.example.uts_progmob.Model.DataDosen>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "somethig wrong.... ", Toast.LENGTH_LONG).show();
+            public void onFailure(Call<DefaultResult> call, Throwable t) {
+                System.out.println("message :"+t.getMessage());
+                Toast.makeText(MainActivity.this,
+                        "Something wnet wrong... Please try ;ater!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    private void getAllDataMHS()
-    {
-        Call<List<DataMhs>> call = DataMahasiswaService.getMhsAll("1");
-        call.enqueue(new Callback<List<DataMhs>>() {
+    private void createDosen(){
+        Call<DefaultResult> call = dataDosenService.createDosen("Dendy","001","Yogyakarta",
+                "dendy@dendy.com","SKUYLIVING","dendy.jpg","1");
+        call.enqueue(new Callback<DefaultResult>() {
             @Override
-            public void onResponse(Call<List<DataMhs>> call, Response<List<DataMhs>> response) {
-                for(DataMhs mahasiswa:response.body())
-                {
-                    System.out.println("nimNama : " +mahasiswa.getNimNama());
-                    System.out.println("Alamat : " +mahasiswa.getAlamat());
-                }
-
+            public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
+                System.out.println(response.body().getStatus());
             }
 
             @Override
-            public void onFailure(Call<List<DataMhs>> call, Throwable t) {
-                Toast.makeText(MainActivity.this, "somethig wrong.... ", Toast.LENGTH_LONG).show();
+            public void onFailure(Call<DefaultResult> call, Throwable t) {
+                System.out.println("message :"+t.getMessage());
+                Toast.makeText(MainActivity.this,
+                        "Something wnet wrong... Please try ;ater!", Toast.LENGTH_SHORT).show();
             }
         });
     }
+
+    private void updateDosen(){
+        Call<DefaultResult> call = dataDosenService.updateDosen("Dendy","001","Yogyakarta",
+                "dendy@dendy.com","SKUYLIVING","dendy.jpg","1");
+        call.enqueue(new Callback<DefaultResult>() {
+            @Override
+            public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
+                System.out.println(response.body().getStatus());
+            }
+
+            @Override
+            public void onFailure(Call<DefaultResult> call, Throwable t) {
+                System.out.println("message :"+t.getMessage());
+                Toast.makeText(MainActivity.this,
+                        "Something wnet wrong... Please try ;ater!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
+    private void deleteDosen(){
+        Call<DefaultResult> call = dataDosenService.deleteDosen("2","002");
+        call.enqueue(new Callback<DefaultResult>() {
+            @Override
+            public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
+                System.out.println(response.body().getStatus());
+            }
+
+            @Override
+            public void onFailure(Call<DefaultResult> call, Throwable t) {
+                System.out.println("message :"+t.getMessage());
+                Toast.makeText(MainActivity.this,
+                        "Something wnet wrong... Please try ;ater!", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
 }
