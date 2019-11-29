@@ -35,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void insertDosen(){
-        Call<DefaultResult> call = dataDosenService.insertDosen("Dendy","001","Yogyakarta",
-                "dendy@dendy.com","SKUYLIVING","dendy.jpg","1");
+        Call<DefaultResult> call = dataDosenService.insertDosen("Dendy","011","Yogyakarta",
+                "dendy@dendy.com","SKUYLIVING","dendy.jpg","72140020");
         call.enqueue(new Callback<DefaultResult>() {
             @Override
             public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
@@ -53,8 +53,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void createDosen(){
-        Call<DefaultResult> call = dataDosenService.createDosen("Dendy","001","Yogyakarta",
-                "dendy@dendy.com","SKUYLIVING","dendy.jpg","1");
+        Call<DefaultResult> call = dataDosenService.createDosen("Dendy","011","Yogyakarta",
+                "dendy@dendy.com","SKUYLIVING","dendy.jpg","72140020");
         call.enqueue(new Callback<DefaultResult>() {
             @Override
             public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
@@ -71,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateDosen(){
-        Call<DefaultResult> call = dataDosenService.updateDosen("Dendy","001","Yogyakarta",
-                "dendy@dendy.com","SKUYLIVING","dendy.jpg","1");
+        Call<DefaultResult> call = dataDosenService.updateDosen("Dendy","011","Yogyakarta",
+                "dendy@dendy.com","SKUYLIVING","dendy.jpg","72140020");
         call.enqueue(new Callback<DefaultResult>() {
             @Override
             public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
@@ -83,13 +83,13 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<DefaultResult> call, Throwable t) {
                 System.out.println("message :"+t.getMessage());
                 Toast.makeText(MainActivity.this,
-                        "Something wnet wrong... Please try ;ater!", Toast.LENGTH_SHORT).show();
+                        "Data diubah!", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     private void deleteDosen(){
-        Call<DefaultResult> call = dataDosenService.deleteDosen("2","002");
+        Call<DefaultResult> call = dataDosenService.deleteDosen("18","72140020");
         call.enqueue(new Callback<DefaultResult>() {
             @Override
             public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFailure(Call<DefaultResult> call, Throwable t) {
                 System.out.println("message :"+t.getMessage());
                 Toast.makeText(MainActivity.this,
-                        "Something wnet wrong... Please try ;ater!", Toast.LENGTH_SHORT).show();
+                        "Data dihapus!", Toast.LENGTH_SHORT).show();
             }
         });
     }
