@@ -120,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-            else{
+
                 Bitmap imageBitMap = BitmapFactory.decodeFile(file.getAbsolutePath());
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 imageBitMap.compress(Bitmap.CompressFormat.JPEG,100,baos);
@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
 
-        }
+
 
 
         Call<DefaultResult> call = dataDosenService.insertDosenWithFoto("Dendy","011","Yogyakarta",
