@@ -130,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         Call<DefaultResult> call = dataDosenService.insertDosenWithFoto("Dendy","011","Yogyakarta",
-                "dendy@dendy.com","SKUYLIVING","dendy.jpg","72140020");
+                "dendy@dendy.com","SKUYLIVING",imageToSend,"72140020");
         call.enqueue(new Callback<DefaultResult>() {
             @Override
             public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
