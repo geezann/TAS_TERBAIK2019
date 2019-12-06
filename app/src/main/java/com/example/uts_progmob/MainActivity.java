@@ -38,10 +38,7 @@ public class MainActivity extends AppCompatActivity {
                 .create(DataDosenService.class);
         dataDosenService = RetrofitClient.getRetrofitInstance()
                 .create(DataDosenService.class);
-        insertDosen();
-
-        updateDosen();
-        deleteDosen();
+        insertDosenWithFoto();
 
     }
 
@@ -126,10 +123,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
-
-
-
-        Call<DefaultResult> call = dataDosenService.insertDosenWithFoto("Dendy","011","Yogyakarta",
+        Call<DefaultResult> call = dataDosenService.insertDosenWithFoto("Dendy","72140020","Yogyakarta",
                 "dendy@dendy.com","SKUYLIVING",imageToSend,"72140020");
         call.enqueue(new Callback<DefaultResult>() {
             @Override
