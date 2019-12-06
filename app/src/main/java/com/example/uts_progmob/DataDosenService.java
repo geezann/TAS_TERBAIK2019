@@ -27,7 +27,7 @@ public interface DataDosenService {
 
     @FormUrlEncoded
     @POST("/api/progmob/dosen/createfoto")
-    Call<DefaultResult> createDosen(@Field("nama") String nama,
+    Call<DefaultResult> insertDosenWithFoto(@Field("nama") String nama,
                                     @Field("nidn") String nidn,
                                     @Field("alamat") String alamat,
                                     @Field("email") String email,
