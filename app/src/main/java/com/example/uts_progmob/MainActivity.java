@@ -117,17 +117,14 @@ public class MainActivity extends AppCompatActivity {
                 ActivityCompat.requestPermissions(this,
                         new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
                         1);
-
-
             }
-
                 Bitmap imageBitMap = BitmapFactory.decodeFile(file.getAbsolutePath());
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 imageBitMap.compress(Bitmap.CompressFormat.JPEG,100,baos);
                 byte[] bytes = baos.toByteArray();
                 String base64 = Base64.encodeToString(bytes,Base64.DEFAULT);
 
-            }
+        }
 
 
 
