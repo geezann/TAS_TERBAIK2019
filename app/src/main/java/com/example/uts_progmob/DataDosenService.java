@@ -29,6 +29,7 @@ public interface DataDosenService {
     @POST("/api/progmob/dosen/createfoto")
     Call<DefaultResult> insertDosenWithFoto(@Field("nama") String nama,
                                     @Field("nidn") String nidn,
+
                                     @Field("alamat") String alamat,
                                     @Field("email") String email,
                                     @Field("gelar") String gelar,

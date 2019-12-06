@@ -38,6 +38,9 @@ public class MainActivity extends AppCompatActivity {
                 .create(DataDosenService.class);
         dataDosenService = RetrofitClient.getRetrofitInstance()
                 .create(DataDosenService.class);
+        insertDosen();
+        updateDosen();
+        deleteDosen();
         insertDosenWithFoto();
 
     }
