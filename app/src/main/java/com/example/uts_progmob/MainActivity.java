@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         dataDosenService = RetrofitClient.getRetrofitInstance()
                 .create(DataDosenService.class);
-        dataDosenService = RetrofitClient.getRetrofitInstance()
-                .create(DataDosenService.class);
         insertDosen();
         updateDosen();
         deleteDosen();

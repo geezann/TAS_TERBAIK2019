@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class DataMahasiswa extends AppCompatActivity {
@@ -19,7 +20,9 @@ public class DataMahasiswa extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_data_mahasiswa);
 
-        Button simpanButton = (Button) findViewById(R.id.button2);
+        final EditText nama, nim, alamat, email, gelar, foto;
+
+        Button simpanButton = (Button) findViewById(R.id.simpan);
         simpanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -40,6 +43,39 @@ public class DataMahasiswa extends AppCompatActivity {
                 });
                 AlertDialog dialog = builder.create();
                 dialog.show();
+            }
+        });
+
+        nama = (EditText) findViewById(R.id.etxNama);
+        nim = (EditText) findViewById(R.id.etxNim);
+        alamat = (EditText) findViewById(R.id.etxAlamat);
+        email = (EditText) findViewById(R.id.etxEmail);
+        foto = (EditText) findViewById(R.id.etxFoto);
+        simpanButton = (Button)findViewById(R.id.simpan);
+
+        simpanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(nama.getText().toString().length()==0){
+                    //jika form Email belum di isi / masih kosong
+                    nama.setError("Silahkan mengisi Nama anda!");
+                }else if(nim.getText().toString().length()==0){
+                    //jika form Username belum di isi / masih kosong
+                    nim.setError("Silahkan mengisi NIDN anda!");
+                }else if(alamat.getText().toString().length()==0){
+                    //jika form Passwrod belum di isi / masih kosong
+                    alamat.setError("Silahkan mengisi Alamat anda!!");
+                }else if(email.getText().toString().length()==0){
+                    //jika form Passwrod belum di isi / masih kosong
+                    email.setError("Silahkan isi Email anda!!");
+                }else if(foto.getText().toString().length()==0){
+                    //jika form Passwrod belum di isi / masih kosong
+                    foto.setError("Silahkan mengisi Alamat anda!!");
+                }else {
+                    //jika form sudah terisi semua
+                    Toast.makeText(getApplicationContext(), "Simpan Berhasil!",
+                            Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
