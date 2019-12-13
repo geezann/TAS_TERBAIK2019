@@ -85,8 +85,8 @@ public class DataDosen extends AppCompatActivity {
     }
 
     private void insertDosen(){
-        Call<DefaultResult> call = dataDosenService.insertDosen("Dendy","011","Yogyakarta",
-                "dendy@dendy.com","SKUYLIVING","dendy.jpg","72140020");
+        Call<DefaultResult> call = dataDosenService.insertDosen("Argo","0516118902","Godean",
+                "argo@staff.ukdw.ac.id","S.T., M.Eng","7216002-2019-11-02.jpg","72140020");
         call.enqueue(new Callback<DefaultResult>() {
             @Override
             public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
@@ -103,8 +103,8 @@ public class DataDosen extends AppCompatActivity {
     }
 
     private void updateDosen(){
-        Call<DefaultResult> call = dataDosenService.updateDosen("Dendy","011","Yogyakarta",
-                "dendy@dendy.com","SKUYLIVING","dendy.jpg","72140020");
+        Call<DefaultResult> call = dataDosenService.updateDosen("Argo","0516118902","Godean",
+                "argo@staff.ukdw.ac.id","S.T., M.Eng","7216002-2019-11-02.jpg","72140020");
         call.enqueue(new Callback<DefaultResult>() {
             @Override
             public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
@@ -163,8 +163,8 @@ public class DataDosen extends AppCompatActivity {
 
         }
 
-        Call<DefaultResult> call = dataDosenService.insertDosenWithFoto("Dendy","72140020","Yogyakarta",
-                "dendy@dendy.com","SKUYLIVING",imageToSend,"72140020");
+        Call<DefaultResult> call = dataDosenService.insertDosenWithFoto("Argo","0516118902","Godean",
+                "argo@staff.ukdw.ac.id","S.T., M.Eng",imageToSend,"72140020");
         call.enqueue(new Callback<DefaultResult>() {
             @Override
             public void onResponse(Call<DefaultResult> call, Response<DefaultResult> response) {
